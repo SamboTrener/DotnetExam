@@ -52,8 +52,7 @@ function Credit() {
                     const response = await axios.post(
                         "/Credit",
                         {
-                            CreditRequest: {
-                                FulName: fullName,
+                                FullName: fullName,
                                 PassportData: passportData,
                                 Age: age,
                                 Amount: amount,
@@ -61,7 +60,6 @@ function Credit() {
                                 Employment: employment,
                                 IsOtherCreditsExists: isOtherCreditsExists,
                                 Deposit: deposit
-                            }
                         }
                     )
                     alert(`${response.data}`)
@@ -80,13 +78,6 @@ function Credit() {
     return (
         <div className="position-absolute start-50">
 
-
-            <input type = "button" value="GET" onClick={e => {
-                e.preventDefault()
-                axios.get("/Credit").then(x => console.log(x.data))
-            }}/>
-            
-            
             <form onSubmit={formik.handleSubmit} onReset={formik.handleReset}>
                 <div className="h1">Мгновенный кредит</div>
 
@@ -199,7 +190,7 @@ function Credit() {
                     value={formik.values.employment}
                 >
                     <option value="" label='Статус работы...'> </option>
-                    <option value="Трудоустроен по трудовому договору">Трудоустроен по трудовому договору</option>
+                    <option value="Трудоустройство по трудовому договору">Трудоустройтсво по трудовому договору</option>
                     <option value="Собственное ИП">Собственное ИП</option>
                     <option value="Фрилансер">Фрилансер</option>
                     <option value="Пенсионер">Пенсионер</option>

@@ -6,6 +6,7 @@ namespace LoansIssuance.Controllers;
 
 
 [Route("[controller]")]
+[ApiController]
 public class CreditController : ControllerBase
 {
     private readonly ICriminalRecordChecker _criminalRecordChecker;
@@ -15,15 +16,8 @@ public class CreditController : ControllerBase
         _criminalRecordChecker = criminalRecordChecker;
     }
 
-    [HttpGet]
-    public string Get()
-    {
-        return "dsfdsfwdfdwfwfwdfwfwe";
-    }
-
-    /*fullName: fullName, passportData: passportData,  age: age, amount: amount, target: target, employment: employment, isOtherCreditsExists : isOtherCreditsExists, deposit: deposit*/
     [HttpPost]
-    public IActionResult Estimate([FromBody]CreditRequest request)/* string fullName, string passportData, int age, int amount,  string target, string employment, bool isOtherCreditsExists, string deposit*/
+    public IActionResult Estimate([FromBody]CreditRequest request)
     {
         var sum = 0;
 
@@ -83,7 +77,7 @@ public class CreditController : ControllerBase
         return employment switch
         {
             "Трудоустройство по трудовому договору" => 14,
-            "Владелец ИП" => 12,
+            "Собственное ИП" => 12,
             "Фрилансер" => 8,
             "Пенсионер" => age < 70 ? 5 : 0,
             _ => 0
@@ -101,7 +95,7 @@ public class CreditController : ControllerBase
     {
         return target switch
         {
-            "Потребительский" => 14,
+            "Потребительский кредит" => 14,
             "Недвижимость" => 8,
             "Перекредитование" => 12,
             _ => 0
