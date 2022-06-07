@@ -1,0 +1,14 @@
+{
+  "author": "AlexanderLipatov",
+  "classifications": [
+    "Web"
+  ],
+  "name": "Asp.NET 6 with React.js + TypeScript",
+  "identity": "ASLipatov.AspNetReactTypeScript",
+  "shortName": "aspnet-react-ts",
+  "tags": {
+    "language": "C#"
+  },
+  "sourceName": "ASP.NETCoreWebApplication1",
+  "preferNameDirectory": "true"
+}
